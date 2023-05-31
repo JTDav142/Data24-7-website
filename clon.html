@@ -1,0 +1,2997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="https://sky247data.com/wp-content/plugins/vtupress/js/bootstrap.min.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/js/jquery.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/js/sweet.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/js/pdf.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/js/print.js?v=1"></script>
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/css/all.min.css?v=1">
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/css/print.css?v=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="csrf-token" content="8a61e0366d333b6dd21b8050f695db479cf3f0e7">
+<meta name="description" content="Automate data reselling directly from your own sim">
+<meta name="theme-color" content="#4c51bf">
+<meta name="google-site-verification" content="oTU7Ri_FE_RAd-MiKkqrB67abc9bJAASskSRna5MS2s">
+<title>Dashboard
+</title>
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/template/default/csss/fontawesome-all.css?v=1">
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/css/bootstrap.min.css?v=1">
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/custom.css?v=1">
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/template/classic/csss/darkmode.css?v=7">
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/styles.css?v=1">
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/all.min.css?v=1">
+
+<link rel="stylesheet" href="https://sky247data.com/wp-content/plugins/vtupress/admin/dist/css/icons/material-design-iconic-font/css/materialdesignicons.min.css">
+
+<link rel="shortcut icon" href="https://sky247data.com/wp-content/uploads/2022/09/SITE-ICON-1-150x150.png" type="image/png">
+
+
+<style>
+
+		/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* button */
+::-webkit-scrollbar-button {
+    background: #222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ad8282;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3030;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #8f3838;
+}
+
+/* The track NOT covered by the handle.
+::-webkit-scrollbar-track-piece {
+    background: #000;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+    background: #ae4343;
+}
+
+/* Resizer */
+::-webkit-resizer {
+    background: #8e3f3f;
+}
+
+
+
+  #cover-spin {
+        position:fixed;
+        width:100%;
+        left:0;right:0;top:0;bottom:0;
+        background-color: rgba(255,255,255,0.7);
+        z-index:9999;
+        /*display:none;*/
+    }
+
+    @-webkit-keyframes spin {
+      from {-webkit-transform:rotate(0deg);}
+      to {-webkit-transform:rotate(360deg);}
+    }
+
+    @keyframes  spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+    }
+
+    #cover-spin::after {
+        content:"";
+        display:block;
+        position:absolute;
+        left:48%;top:40%;
+        width:40px;height:40px;
+        border-style:solid;
+		border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+        border-width: 4px;
+        border-radius:50%;
+        -webkit-animation: spin .8s linear infinite;
+        animation: spin .8s linear infinite;
+    }
+
+div.vnav ul.vnav li {
+    color: black;
+    padding: 0.5em;
+}
+div.vnav ul.vnav li * {
+    font-size: 1.1em;
+    padding-right: 0.5em;
+}
+
+div.vnav ul.vnav li:hover {
+background-color:#3028a7;
+}
+
+</style>
+
+<script defer="" src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/cdn.min.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/alpine@3.2.0.js?v=1" defer=""></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/axios.min.js?v=1"></script>
+<!--<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/app.js?v=1"></script>-->
+<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/wow.min.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/cube.js?v=1"></script>
+<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/countup.js?v=1"></script>
+<script>
+var darkMode = document.getElementById('darkMode');
+var darkLabel = "darkModeLabel";
+var darkLang = "Dark";
+var lightLang = "Light";
+var imgID = "logo";
+var darkImg = "./dark.png";
+var lightImg = "./light.png";
+window.addEventListener('load', function () {
+  if (darkMode) {
+    initTheme();
+    darkMode.addEventListener('change', function () {
+      resetTheme();
+    });
+  }
+});
+function initTheme() {
+  var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
+  darkMode.checked = darkThemeSelected;
+  darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+ // darkThemeSelected ? document.getElementById(imgID).src = darkImg : document.getElementById(imgID).src = lightImg;
+  darkThemeSelected ? document.getElementById(darkLabel).innerHTML = darkLang : document.getElementById(darkLabel).innerHTML = lightLang;
+}
+function resetTheme() {
+  if (darkMode.checked) {
+    document.body.setAttribute('data-theme', 'dark');
+    localStorage.setItem('darkMode', 'dark');
+    //document.getElementById(imgID).src = darkImg;
+    document.getElementById(darkLabel).innerHTML = darkLang;
+  } else {
+    document.body.removeAttribute('data-theme');
+    localStorage.removeItem('darkMode');
+   // document.getElementById(imgID).src = lightImg;
+    document.getElementById(darkLabel).innerHTML = lightLang;
+  }
+}
+</script>
+
+
+</head>
+<body class="bg-gray-100">
+<main>
+
+<aside style="z-index:20;" class="dark-white fixed top-0 bottom-0 z-10 duration-500 ease-in-out bg-indigo-800 shadow-lg w-72 md:w-64 -left-0 lg:left-0" id="sidebar">
+<div class="dark-white p-2 m-5 text-xs text-center uppercase truncate bg-gray-100 border rounded-lg">
+Support - 08146123682</div>
+<hr class="mx-5 border-indigo-700">
+<div class="vnav px-6 pb-5 overflow-y-scroll text-xs h-85">
+<ul class="vnav mt-8 space-y-3">
+<li>
+<a href="/vpaccount" class="tracking-wider text-indigo-200 duration-150 ease-in-out hover:text-indigo-300">
+<i class="mr-3 fa fa-desktop"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+<a href="?vend=airtime" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-4 fas fa-mobile"></i>
+Buy Airtime
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=data" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-2 fa fa-wifi"></i>
+Buy Data
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=cable" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-2 fas fa-tv nav-icon"></i>
+CableTv Sub*
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=bill" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-3 fa fa-building"></i>
+Pay Light Bills
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=epins" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-2 fas fa-graduation-cap nav-icon"></i>
+Buy Exam Pins
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=upgrade" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-3 fa fa-line-chart" aria-hidden="true"></i>
+Upgrade Levels
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=pricing" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-2 fa fa-tags" aria-hidden="true"></i>
+Pricing Page
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=developer" class="tracking-wider flex justify-between hover:text-indigo-300 duration-150 text-indigo-200 ease-in-out hover:text-indigo-300">
+<div>
+<i class="mr-2 fa fa-cogs" aria-hidden="true"></i>
+Developers Api
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=history&for=wallet" class="tracking-wider text-indigo-200 duration-150 ease-in-out hover:text-indigo-300">
+<i class="mr-3 fa fa-clock"></i>
+View Histories
+</a>
+</li>
+
+
+
+
+<li>
+<a href="?vend=account" class="tracking-wider text-indigo-200 duration-150 ease-in-out hover:text-indigo-300">
+<i class="mr-3 fa fa-user"></i>
+My Account
+</a>
+</li>
+<li>
+<a href="?vend=message" class="tracking-wider text-indigo-200 duration-150 ease-in-out hover:text-indigo-300">
+<i class="mr-2 fas fa-inbox" aria-hidden="true"></i>
+Messages
+</a>
+</li>
+</ul>
+
+<div x-data="{opened: $persist(true).as(&#39;xportals-opened&#39;)}" class="mt-8 ">
+<a href="#" class="flex justify-between text-indigo-100 uppercase" @click.prevent="opened = !opened">
+<div>
+<i class="mr-2 fa fa-boxes"></i>
+Referal System
+</div>
+<div>
+<i class="fa fa-angle-down" :class="opened ? &#39;fa-angle-down&#39; : &#39;fa-angle-right&#39;"></i>
+</div>
+</a>
+<ul class="vnav mt-3 space-y-3 text-white" :class=" opened ? &#39;&#39; : &#39;hidden&#39;">
+<li>
+<a href="?vend=referral-details" class="flex justify-between text-indigo-200 duration-150 ease-in-out hover:text-indigo-300">
+<div>
+Referral Info
+</div>
+<div>
+<span class="inline-block px-1 text-xs font-semibold tracking-widest text-white uppercase bg-orange-600 rounded">
+Info
+</span>
+</div>
+</a>
+</li>
+<li>
+<a href="?vend=referrals" class="flex justify-between text-indigo-200 duration-150 ease-in-out hover:text-indigo-300">
+<div>
+My Referrals
+</div>
+<div>
+<span class="inline-block px-1 text-xs font-semibold tracking-widest text-red-600 uppercase bg-white rounded">Refs</span>
+</div>
+</a>
+</li>
+</ul>
+</div>
+
+
+</div>
+</aside>
+<section class="lg:ml-64">
+
+<div class="bg-secondary z-index-100">
+<div id="cover-spin">
+
+<div class="loader">
+</div>
+
+</div>
+
+</div>
+
+<header class="fixed top-0 left-0 right-0 py-1 bg-white shadow lg:ml-64 lg:py-0" style="z-index:10;">
+<div class="container mx-auto">
+<div class="flex items-center justify-between mx-3 lg:mx-5">
+<div class="flex items-center">
+<div class="flex items-center mr-5 lg:mr-10">
+<a href="?vend=account" id="nav-toggle" class="dark p-2 bg-gray-300 rounded-full lg:hidden">
+<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+<path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+</svg>
+</a>
+<a href="/" title="" class="hidden  lg:inline-block block p-3 rounded-full">
+<!--$template_url."/classic/classic";?>/icon.svg-->
+<img src="https://sky247data.com/wp-content/uploads/2022/09/SITE-ICON-1-150x150.png" alt="" class="inline-block w-6 h-6">
+</a>
+</div>
+<a href="?vend=account" class=" px-4 py-2 my-4 bg-gray-300 rounded-full lg:inline-block">
+<div class="flex items-center">
+<i class="text-indigo-900 fa fa-user-circle"></i>
+<span class="inline-block ml-2 text-xs text-gray-700 whitespace-no-wrap">JTDav142 - 2753</span>
+</div>
+</a>
+ </div>
+<div class="flex items-center text-sm text-center lg:text-right">
+<a href="https://sky247data.com/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fsky247data.com%2Fvpaccount&amp;_wpnonce=31db83c820">
+<i class="fa fa-power-off"></i>
+Logout
+</a>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8 lg:p-10"></div>
+
+
+<div id="dashboard-main-content">
+
+<!--MAIN DASHBOARD-->
+	<script>
+	jQuery(window).on("load",function(){
+		var word = "Dear Esteemed Agents kindly note that all services are available and delivering fast. Our support contact call/whatsApp 08037525123. Thank you. Admin.";
+swal({
+  title: "NOTIFICATION",
+  text: "Dear Esteemed Agents kindly note that all services are available and delivering fast. Our support contact call/whatsApp 08037525123. Thank you. Admin.",
+  icon: "info",
+  button: "Okay"
+});
+	});
+</script>
+	<div>
+<template x-if="notifs.length"></template><div class="container mx-auto mt-3">
+<div class=" py-sm-2">
+<template x-for="notif, index in notifs"></template><div class="px-3 py-3 text-sm text-white bg-blue-600 rounded">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div>
+<i class="fa fa-info-circle fa-2x"></i>
+</div>
+<div>
+<div x-text="notif.title" class="font-bold">NOTIFICATION</div>
+<div x-text="notif.message" class="mt-1">Dear Esteemed Agents kindly note that all services are available and delivering fast. Our support contact call/whatsApp 08037525123. Thank you. Admin. </div>
+</div>
+</div>
+<div>
+<a href="#" class="block pl-4" @click.prevent="notifs.splice(index)">
+<i class="text-white fa fa-times"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section>
+<div class="container mx-auto space-y-2">
+
+
+<!--CONTACT-->
+<div class="py-3">
+<div class="items-center justify-between py-3 px-3 text-sm bg-orange-100 border rounded lg:flex">
+<div class="flex">
+<div class="pr-2 dark">
+<i class="fa fa-info-circle"></i>
+</div>
+<div class="font-semibold dark">
+Need To Contact Us?
+</div>
+</div>
+<div class="mt-3 ml-5 lg:mt-0">
+<a href="whatsapp://send?phone=2348037525123&amp;text=Hi,+I+need+your+help+with">
+<button class="inline-block px-3 py-1 font-bold text-smtext-white text-white duration-300 bg-green-600 rounded hover:bg-yellow-700">
+Whatsapp Us
+</button>
+</a>
+<a href="https://chat.whatsapp.com/HhJzdP0wxw9A2j6NozKHPT">
+<button class="inline-block px-3 py-1 font-bold text-smtext-white text-white duration-300 bg-blue-600 rounded hover:bg-yellow-700">
+Whatsapp Group
+</button>
+</a>
+<a href="tel:+2348037525123">
+<button class="inline-block px-3  font-bold py-1 text-smtext-white text-white duration-300 bg-yellow-600 rounded hover:bg-yellow-700">
+Call Us
+</button>
+</a>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="items-center justify-between mx-5 mb-2 text-sm lg:flex">
+<div></div>
+<div class="flex items-center mt-4 lg:mt-0">
+<a href="?vend=wallet" class="dark inline-block px-3 py-2 mr-2 text-xs font-bold text-indigo-600 uppercase bg-gray-200 border rounded hover:bg-gray-300">
+  <i class="fa fa-filter"></i>
+Fund Wallet
+</a>
+<a href="?vend=history&for=wallet" class="inline-block px-3 py-2 mr-2 text-xs font-bold text-indigo-600 uppercase border rounded hover:bg-gray-200">
+<i class="fa fa-history"></i>
+Wallet History
+</a>
+<a href="?vend=account" class="inline-block  font-bold text-white px-3 py-2 text-xs font-bold text-indigo-100 uppercase bg-indigo-500 rounded hover:bg-indigo-700">
+<i class="fa fa-wallet"></i>
+My Account
+</a>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div class="flex mt-2 mb-4 col-md mb-sm-4 mb-md-4 mx-md-2  mt-md-4 gx-4 py-3 px-2  bg-white rounded shadow">
+<div class="p-3 text-indigo-800 bg-gray-200 rounded-full">
+<svg viewBox="0 0 24 24" class="w-8 h-8 fill-current">
+<defs></defs>
+<path d="M6 2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V4c0-1.1.9-2 2-2zm0 2v16h12V4H6zm6 14a1 1 0 110-2 1 1 0 010 2z" class="heroicon-ui"></path>
+</svg>
+</div>
+<div class="ml-5">
+<p class="text-xs font-bold text-indigo-400 uppercase">Wallet (NGN)</p>
+<p class="text-2xl font-bold">29.93</p>
+</div>
+</div>
+<div class="flex mb-4 col-md mb-sm-4 mb-md-4 mx-md-2  mt-md-4 gx-4 py-3 px-2  bg-white rounded shadow">
+<div class="p-3 text-indigo-800 bg-gray-200 rounded-full">
+<svg viewBox="0 0 24 24" class="w-8 h-8 fill-current">
+<defs></defs>
+<path d="M12 12a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6zm9 11a1 1 0 01-2 0v-2a3 3 0 00-3-3H8a3 3 0 00-3 3v2a1 1 0 01-2 0v-2a5 5 0 015-5h8a5 5 0 015 5v2z" class="heroicon-ui"></path>
+</svg>
+</div>
+<div class="ml-5">
+<p class="text-xs font-bold text-indigo-400 uppercase">Plan</p>
+<p class="text-2xl font-bold">Customer</p>
+</div>
+</div>
+
+
+<div  class="flex mb-4 col-md mb-sm-4 mb-md-4 mx-md-2  mt-md-4 gx-4 py-3 px-2  bg-white rounded shadow">
+<div class="p-3 text-indigo-800 bg-gray-200 rounded-full">
+<svg viewBox="0 0 24 24" class="w-8 h-8 fill-current">
+<defs></defs>
+<path d="M20 15a1 1 0 002 0V7a1 1 0 00-1-1h-8a1 1 0 000 2h5.59L13 13.59l-3.3-3.3a1 1 0 00-1.4 0l-6 6a1 1 0 001.4 1.42L9 12.4l3.3 3.3a1 1 0 001.4 0L20 9.4V15z" class="heroicon-ui"></path>
+</svg>
+</div>
+<div class="ml-5">
+<p class="text-xs font-bold text-indigo-400 uppercase">Total Referred.</p>
+<p class="text-2xl font-bold">
+0</p>
+</div>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+</section>
+
+
+<!--SERVICES-->
+<!--Services block for vtupress second template (wp-content/plugins/vtupress/template/classic/classic.html(is the __DIR__ sol:php call))-->
+<section>
+<div class="container mx-auto my-5">
+
+<div class="row">
+
+
+<div class="dark-white flex bg-gray-200 col-12 col-md items-center py-5  px-3 justify-between  duration-500 ease-in-out border-gray-300 border-b lg:border-r lg:border-b-0 hover:bg-gray-300">
+<div class="flex items-center ml-3">
+<img src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/airtime1.svg" alt="MTN" class="w-10 h-10 rounded">
+<div class="ml-3">
+<div class="text-xs text-gray-600">
+<a href="?vend=airtime" class="font-semibold">
+Airtime
+</a>
+</div>
+<div class=" white text-xs font-semibold text-gray-800">
+<i class="fa fa-sim-card"></i>
+Best Airtime For You
+</div>
+<div class="text-xstext-gray-800">
+<a href="?vend=airtime">
+Buy Now
+</a>
+</div>
+</div>
+</div>
+<div class="mr-3">
+<a href="?vend=airtime" title="View" class="dark inline-block text-indigo-500 bg-gray-300 border border-gray-400 rounded-full">
+<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+<div class="dark-white flex bg-gray-200 col-12 col-md items-center py-5   px-3 justify-between duration-500 ease-in-out border-gray-300 border-b lg:border-r lg:border-b-0 hover:bg-gray-300">
+<div class="flex items-center  ml-3">
+<img src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/data1.svg" alt="MTN" class="w-10 h-10 rounded">
+<div class="ml-3">
+ <div class="text-xs text-gray-600">
+<a href="?vend=data" class="font-semibold">
+Data
+</a>
+</div>
+<div class="white text-xs font-semibold text-gray-800">
+<i class="fa fa-sim-card"></i>
+Cheapest Data Plan
+</div>
+<div class="text-xstext-gray-800">
+<a href="?vend=data">
+Buy Now
+</a>
+</div>
+</div>
+</div>
+<div class="mr-3">
+<a href="?vend=data" title="View" class="dark inline-block text-indigo-500 bg-gray-300 border border-gray-400 rounded-full">
+<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+<div class="dark-white flex bg-gray-200  col-12  col-md items-center py-5  px-3 justify-between duration-500 ease-in-out border-gray-300 border-b lg:border-r lg:border-b-0 hover:bg-gray-300">
+<div class="flex items-center  ml-3">
+<img src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/cable1.svg" alt="MTN" class="w-10 h-10 rounded">
+<div class="ml-3">
+<div class="text-xs text-gray-600">
+<a href="?vend=cable" class="font-semibold">
+Cable
+</a>
+</div>
+<div class="white text-xs font-semibold text-gray-800">
+<i class="fa fa-sim-card"></i>
+Don't Miss Your Favourite Shows
+</div>
+<div class="text-xstext-gray-800">
+<a href="?vend=cable">
+Subscribe Now
+</a>
+</div>
+</div>
+</div>
+<div class="mr-3">
+<a href="?vend=cable" title="View" class="dark inline-block text-indigo-500 bg-gray-300 border border-gray-400 rounded-full">
+<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+<div class="dark-white flex bg-gray-200 col-12  col-md items-center py-5 px-3 justify-between duration-500 ease-in-out border-gray-300  border-b lg:border-r lg:border-b-0 hover:bg-gray-300">
+<div class="flex items-center  ml-3">
+<img src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/bulb1.svg" alt="MTN" class="w-10 h-10 rounded">
+<div class="ml-3">
+<div class="text-xs text-gray-600">
+<a href="?vend=bill" class="font-semibold">
+Utility Bills
+</a>
+</div>
+<div class="white text-xs font-semibold text-gray-800">
+<i class="fa fa-sim-card"></i>
+Pay For Your Bills
+</div>
+<div class="text-xstext-gray-800">
+<a href="?vend=bill">
+Pay Now
+</a>
+</div>
+</div>
+</div>
+<div class="mr-3">
+<a href="?vend=bill" title="View" class="dark inline-block text-indigo-500 bg-gray-300 border border-gray-400 rounded-full">
+<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+
+
+</div>
+
+</div>
+</section>
+
+
+
+
+<section>
+<div class="container mx-auto">
+<div class="mx-1">
+<div class="lg:flex">
+<div class="lg:w-3/12">
+<div class="flex justify-between">
+<h1 class="font-bold text-gray-800 white">
+Sell Data
+</h1>
+<div>
+<a href="?vend=history&for=transactions&type=data" class="dark px-2 py-1 text-xs font-semibold tracking-wide text-blue-700 uppercase duration-300 bg-gray-200 border rounded hover:shadow">
+<i class="mr-1 fa fa-database"></i>
+See Data History
+</a>
+</div>
+</div>
+<hr class="w-2/12 my-4 border-0 border-t-2 border-indigo-200">
+
+
+
+<div class="container-md mt-3">
+		    <div class="data-form p-3" style="border: 1px solid grey; border-radius: 5px;">
+	<div class="p-2 check-balance" style="text-align:center;">
+	
+    </div>
+        <div class="mb-2">
+
+            <form id="cfor"  class="for" id="cfor" method="post" target="_self">
+            <div class="mb-2">
+			<label  for="datatype" class="form-label" >Data Type</label>
+				<select id="datachoice" aria-label="form-select-sm example" class="form-select form-select-sm datachoice" name="datachoice" >
+						<option value="none" selected>---Select---</option>
+						
+								<option value="corporate">CORPORATE</option>
+							
+								<option value="direct">GIFTING</option>
+							
+								<option value="sme">SME</option>
+							
+				</select>
+			</div>
+		
+			<div class="mb-2">
+                <label for="network" class="form-label">Network</label>
+                <select class="form-select form-select-sm data-network" aria-label="form-select-sm example" name="network">
+                    <option value="none" class="smenetwork">---Select---</option>
+					<div class="sme_network">
+					                    <option value="1" class="smenetwork">MTN</option>
+										<option value="4" class="smenetwork">9MOBILE</option>
+										</div>
+					<div class="corporate_network">
+					                    <option value="1" class="corporatenetwork">MTN</option>
+										<option value="3" class="corporatenetwork">GLO</option>
+										<option value="2" class="corporatenetwork">AIRTEL</option>
+										</div>
+					<div class="direct_network">
+										</div>
+                </select>
+                <div id="validationServer04Feedback" class="invalid-feedback">
+                    <span class="data-select-network">Please Choose a Network. </span>
+                  </div>
+                </div>
+				
+            <div class="mb-2 d-data">
+                    <label for="dataplan" class="form-label">Data Plan</label>
+                    <select class="form-select form-select-sm data-plan" aria-label="form-select-sm example" name="cplan" id="cdat">
+						<option value="none">---Select---</option>
+						<div class="sme_data_plan">
+						<option value="1" id="0" class="imtn smedataplan">MTN 500MB ₦119</option><option value="2" id="1" class="imtn smedataplan">MTN 1GB ₦218</option><option value="3" id="2" class="imtn smedataplan">MTN 2GB ₦436</option><option value="4" id="3" class="imtn smedataplan">MTN 3GB ₦654</option><option value="5" id="4" class="imtn smedataplan">MTN 5GB ₦1124</option><option value="6" id="5" class="imtn smedataplan">MTN 10GB ₦2280</option>
+						
+						<option value="74" id="0" class="i9mobile smedataplan">9MOBILE 1GB ₦200</option><option value="75" id="1" class="i9mobile smedataplan">9MOBILE 1.5GB ₦305</option><option value="76" id="2" class="i9mobile smedataplan">9MOBILE 2GB ₦400</option><option value="77" id="3" class="i9mobile smedataplan">9MOBILE 3GB ₦600</option>
+												</div>
+						
+						<div  class="corporate_data_plan">
+						<option value="8" id="0" class="r2imtn corporatedataplan">MTN 500MB ₦139</option><option value="9" id="1" class="r2imtn corporatedataplan">MTN 1GB ₦238</option><option value="10" id="2" class="r2imtn corporatedataplan">MTN 2GB ₦476</option><option value="11" id="3" class="r2imtn corporatedataplan">MTN 3GB ₦718</option><option value="12" id="4" class="r2imtn corporatedataplan">MTN 5GB ₦1198</option><option value="13" id="5" class="r2imtn corporatedataplan">MTN 10GB ₦2384</option>						
+						<option value="40" id="0" class="r2iairtel corporatedataplan">AIRTEL 500MB ₦119</option><option value="41" id="1" class="r2iairtel corporatedataplan">AIRTEL 1GB ₦218</option><option value="42" id="2" class="r2iairtel corporatedataplan">AIRTEL 2GB ₦436</option><option value="43" id="3" class="r2iairtel corporatedataplan">AIRTEL 5GB ₦1125</option><option value="44" id="4" class="r2iairtel corporatedataplan">AIRTEL 10GB ₦2245</option>												<option value="79" id="1" class="r2iglo corporatedataplan">GLO 500MB ₦138</option><option value="80" id="2" class="r2iglo corporatedataplan">GLO 1GB ₦236</option><option value="81" id="3" class="r2iglo corporatedataplan">GLO 2GB ₦472</option><option value="82" id="4" class="r2iglo corporatedataplan">GLO 3GB ₦762</option><option value="83" id="5" class="r2iglo corporatedataplan">GLO 5GB ₦1185</option><option value="84" id="6" class="r2iglo corporatedataplan">GLO 10GB ₦2370</option>						</div>
+                    
+						<div  class="direct_data_plan">
+						<option value="92" id="0" class="rimtn directdataplan">MTN 500MB ₦1100</option><option value="93" id="1" class="rimtn directdataplan">MTN 1GB ₦1500</option><option value="94" id="2" class="rimtn directdataplan">MTN 2GB ₦2000</option><option value="95" id="3" class="rimtn directdataplan">MTN 3GB ₦3000</option><option value="97" id="4" class="rimtn directdataplan">MTN 5GB ₦4000</option><option value="102" id="5" class="rimtn directdataplan">MTN 10GB ₦5000</option><option value="51" id="8" class="rimtn directdataplan">MTN 40GB ₦20000</option><option value="52" id="9" class="rimtn directdataplan">MTN 75GB ₦40000</option><option value="253" id="10" class="rimtn directdataplan">MTN 25GB ₦12000</option>						
+						<option value="142" id="0" class="riairtel directdataplan">AIRTEL 750MB ₦1050</option><option value="143" id="1" class="riairtel directdataplan">AIRTEL 1.5GB ₦1500</option><option value="144" id="2" class="riairtel directdataplan">AIRTEL 2.0GB ₦2000</option><option value="145" id="3" class="riairtel directdataplan">AIRTEL 3.0GB ₦2600</option><option value="146" id="4" class="riairtel directdataplan">AIRTEL 4.5GB ₦4500</option><option value="148" id="5" class="riairtel directdataplan">AIRTEL 11GB ₦5500</option><option value="145" id="6" class="riairtel directdataplan">Airtel 750MB ₦520</option><option value="138" id="7" class="riairtel directdataplan">Airtel 20GB 30 Days ₦10000</option>						<option value="54" id="0" class="ri9mobile directdataplan">9MOBILE 500MB ₦1000</option><option value="13" id="1" class="ri9mobile directdataplan">9MOBILE 1.5GB ₦1500</option><option value="14" id="2" class="ri9mobile directdataplan">9MOBILE 2.0GB ₦1800</option><option value="15" id="3" class="ri9mobile directdataplan">9MOBILE 3.0GB ₦2200</option><option value="33" id="4" class="ri9mobile directdataplan">9MOBILE 4.5GB ₦3500</option><option value="36" id="5" class="ri9mobile directdataplan">9MOBILE 11.0GB ₦5450</option><option value="57" id="6" class="ri9mobile directdataplan">9MOBILE 15.0GB ₦7600</option>						<option value="37" id="0" class="riglo directdataplan">GLO 1GB ₦496</option><option value="32" id="1" class="riglo directdataplan">GLO 2.3GB ₦1050</option><option value="26" id="2" class="riglo directdataplan">GLO 3.75GB ₦1446</option><option value="27" id="3" class="riglo directdataplan">GLO 5.25GB ₦1985</option><option value="28" id="4" class="riglo directdataplan">GLO 7.0GB ₦2460</option><option value="29" id="5" class="riglo directdataplan">GLO 9.0GB ₦2920</option><option value="56" id="6" class="riglo directdataplan">GLO 14.0GB 30 DAYS ₦3940</option>						</div>
+					
+					</select>
+
+                    <div id="validationServer04Feedback" class="invalid-feedback">
+                        <span class="data-select-network">Please Choose A Plan. </span>
+                      </div>
+            </div>
+
+			<div class="mb-2 visually-hidden">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="vpname" class="form-control data-name" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" value="JTDav142">
+            </div>
+            <div class="mb-2 visually-hidden">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="vpemail" class="form-control data-email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" value="jtdconnects@gmail.com">
+            </div>
+			<div class="mb-2 visually-hidden">
+				<input type="hidden" id="tcode" name="tcode" value="cdat">
+				<input type="hidden" id="datatcode" class="datatcode" name="datatcode">
+				<input type="hidden" id="url" name="url">
+				<input type="hidden" id="thatnetwork" name="thatnetwork">
+				<input type="hidden" id="uniqidvalue" name="uniqidvalue" value="1645808b277aa9">
+				<input type="hidden" id="url1" name="url1" value="https://sky247data.com/wp-content/plugins/vtupress/process.php">
+				<input type="hidden" id="id" name="id" value="VTU-645808b2865c3">
+			</div>
+
+
+
+                <div class="mb-2">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input id="phone" name="phone" list="beneficiaries" type="number" class="form-control data-number data-phone" maxlength="11" placeholder="Phone Number" aria-label="Phone Number" aria-describedby="basic-addon1">
+					<datalist id="beneficiaries">
+<option value='08146123682'><option value='07054082434'><option value='08146123682'><option value='08146123682'><option value='08066909868'><option value='08066909868'><option value='08146123682'><option value='09159682913'><option value='09159682913'><option value='08146123682'><option value='08146123682'><option value='09067986679'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='09159682913'><option value='09159682913'><option value='08022696459'><option value='08022696459'><option value='08146123682'><option value='08169391757'><option value='08039485934'><option value='08146123682'><option value='09159682913'><option value='09159682913'><option value='08039485934'><option value='08022696459'><option value='08022696459'><option value='09159682913'><option value='09159682913'><option value='08146123682'><option value='08066909868'><option value='08066909868'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='08146123682'><option value='08108924684'><option value='08108924684'><option value='08066909868'><option value='08066909868'><option value='07054082434'><option value='08146123682'><option value='08146123682'><option value='08104684958'><option value='08060867169'><option value='09067986679'><option value='08146123682'><option value='08028010133'><option value='09159682913'><option value='09166907180'><option value='09166907180'><option value='09042528983'><option value='09067986679'><option value='08169391757'><option value='08065176125'><option value='08104684958'><option value='08146123682'><option value='08021698675'><option value='08169391797'><option value='09042528983'><option value='08035815744'><option value='08104684958'><option value='08169391757'><option value='08146123682'><option value='08164953047'><option value='08060867169'><option value='09067986679'><option value='09048981662'><option value='09067121917'><option value='09067121917'><option value='09067121917'><option value='08072135676'><option value='08146123682'><option value='09117633764'><option value='09048981662'><option value='08146123682'><option value='07012432008'><option value='07012432008'><option value='07012432008'><option value='08146123682'><option value='08066909868'><option value='08066909868'><option value='08039485934'><option value='08033727423'><option value='08160124416'><option value='09048981662'><option value='08146123682'><option value='08065176125'><option value='08060867169'><option value='08108924684'><option value='08157303492'><option value='08146123682'><option value='08111215362'><option value='09114664837'><option value='08146123682'>                </datalist>
+					<div id="validationServer04Feedback" class="invalid-feedback">
+                       Error: <span class="number-error-message"></span>.
+                      </div>
+                </div>
+                <div class="mb-2">
+                    <label for="network" class="form-label">Original Amount</label>
+                    <div class="input-group mb-2" >
+                        <span class="input-group-text" id="basic-addon1">NGN.</span>
+                        <input type="number" class="form-control data-amount" placeholder="Amount" aria-label="Amount" aria-describedby="basic-addon1"  id="amt" name="amount" readonly>
+                        <span class="input-group-text" id="basic-addon1">.00</span>
+                    </div> 
+                </div>
+														<div class="mb-2">
+
+						                <label for="network" class="form-label">Amount To Pay</label>
+				                <div class="input-group mb-2">
+                    <span class="input-group-text" id="basic-addon1">NGN.</span>
+                    <input id="amttopay" type="number" class="form-control amttopay" max="29.93" placeholder="Amount To Pay" aria-label="Username" aria-describedby="basic-addon1" readonly>
+                    <span class="input-group-text" id="basic-addon1">.00</span>
+                    <div id="validationServer04Feedback" class="invalid-feedback">
+                      Error: <span class="data-amount-error-message"></span>
+                      </div>
+                </div>
+            </div>
+
+						
+<div class="form-check">
+  <input class="form-check-input bypass" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    Bypass Number Validator
+  </label>
+</div>
+
+                <div class="vstack gap-2">
+							                    <button type="button" class="w-full p-2 text-xs font-bold text-white uppercase bg-indigo-600 rounded shadow purchase-data" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Purchase</button>
+      
+				</div>
+            </form>
+    
+            <!--The Modal-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Data Purchase Confirmation</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                    Network : <span class="data-network-confirm"></span><br>
+                    Phone : <span class="data-number-confirm"></span><br>
+                    Data Info: <span class="data-plan-confirm"></span><br>
+                    Amount : ₦<span class="data-amount-confirm"></span><br>
+										Amount To Pay : ₦<span class="amttopay2" ></span><br>
+					Discount : <span class="discount-amount-confirm"></span> <br>
+					                    Status : <span class="data-status-confirm"></span><br>
+					<div class="input-group form">
+					<span class="input-group-text">PIN</span>
+					<input class="form-control pin" type="number" name="pin">
+					</div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="p-2 text-xs font-bold text-dark uppercase bg-gray-600 rounded shadow data-proceed-cancled" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" name="wallet" id="wallet" class=" p-2 text-xs font-bold text-white uppercase bg-indigo-600 rounded shadow data-proceed" form="cfor">Proceed</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+    
+	
+	<script type="text/javascript">
+	
+	
+
+
+function calcit(){
+var original = jQuery("#amt").val();
+var topay = jQuery("#amttopay");
+var data_network_value = jQuery("select.data-network").val();
+
+var datachoice = jQuery(".datachoice").val();
+
+//DISCOUNT BGN
+if(datachoice == "sme"){
+	switch(data_network_value){
+		case"1":
+		var discount = 0;
+		break;
+		case"3":
+		var discount = 0;
+		break;
+		case"2":
+		var discount = 0;
+		break;
+		case"4":
+		var discount = 0;
+		break;
+	}
+}
+else if(datachoice == "direct"){
+	switch(data_network_value){
+		case"1":
+		var discount = 0;
+		break;
+		case"2":
+		var discount = 0;
+		break;
+		case"4":
+		var discount = 0;
+		break;
+		case"3":
+		var discount = 0;
+		break;
+	}
+}
+else if(datachoice == "corporate"){
+	switch(data_network_value){
+		case"1":
+		var discount = 0;
+		break;
+		case"3":
+		var discount = 0;
+		break;
+		case"2":
+		var discount = 0;
+		break;
+		case"4":
+		var discount = 0;
+		break;	
+	}
+}
+
+var the_amo = (original * discount)/100;
+var the_amount = original - the_amo;
+								topay.val(the_amount);
+jQuery(".amttopay2").text(the_amount);
+}
+	
+
+	
+	jQuery(".data-network").val("none");
+	jQuery(".data-plan").val("none");
+	jQuery(".datachoice").val("none");
+	jQuery(".datatcode").val(jQuery(".datachoice").val());
+	jQuery("#amt").val(0);
+	
+	
+	jQuery(document).ready(function(){
+		
+		//Default runtime
+	var datachoice = jQuery(".datachoice").val();
+	if(datachoice == "sme"){
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".data-network .smenetwork").show();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	else if(datachoice == "corporate"){
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".corporatenetwork").show();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	else if(datachoice == "direct"){
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".directnetwork").show();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	else if(datachoice == "none"){
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	
+	/*End of default runtime 
+	#and beginning of datachoice changes... PHP run it	*/
+	
+	
+	jQuery(".datachoice").on("change",function(){
+	jQuery(".datatcode").val(jQuery(".datachoice").val());
+	
+	var ddatachoice = jQuery(".datachoice").val();
+	if(ddatachoice == "sme"){
+		jQuery("#amt").val(0);
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".smenetwork").show();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	else if(ddatachoice == "corporate"){
+		jQuery("#amt").val(0);
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".corporatenetwork").show();
+	jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	else if(ddatachoice == "direct"){
+		jQuery("#amt").val(0);
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".directnetwork").show();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	else if(ddatachoice == "none"){
+		jQuery("#amt").val(0);
+		jQuery(".data-network").val("none");
+		jQuery(".data-plan").val("none");
+		jQuery(".data-network *").hide();
+		jQuery(".datatcode").val(jQuery(".datachoice").val());
+	}
+	
+	
+	
+		
+	});
+	
+	jQuery(".data-network").on("change",function(){
+		jQuery("#amt").val(0);
+		jQuery(".data-plan").val("none");
+		networktoplan();
+	});
+	
+		
+	jQuery(".datachoice").on("change",function(){
+		jQuery("#amt").val(0);
+		jQuery(".data-plan").val("none");
+		networktoplan();
+	});
+
+	jQuery(".check-balance").text("Select A Data Plan");
+	jQuery(".check-balance").css({"background-color":"#0dcaf0","color":"black"});
+	
+	function networktoplan(){
+		var d2atachoice = jQuery(".datachoice").val();
+		var d2atanetwork = jQuery(".data-network option:selected").text();
+		var d2atanetworkval = jQuery(".data-network").val();
+		
+			if(d2atachoice == "sme" && d2atanetwork == "MTN"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .smedataplan.imtn").show();
+				jQuery(".check-balance").text("Check Balance: *131*4#");
+				jQuery(".check-balance").css({"background-color":"#ffc107","color":"black"});
+				
+			}
+			else if(d2atachoice == "sme" && d2atanetwork == "GLO"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .smedataplan.iglo").show();
+				jQuery(".check-balance").text("Check Balance: *127*0#");
+				jQuery(".check-balance").css({"background-color":"#20c997","color":"black"});
+				
+				
+			}
+			else if(d2atachoice == "sme" && d2atanetwork == "9MOBILE"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .smedataplan.i9mobile").show();
+				jQuery(".check-balance").text("Check Balance: *232#");
+				jQuery(".check-balance").css({"background-color":"#198754","color":"white"});
+				
+			}
+			else if(d2atachoice == "sme" && d2atanetwork == "AIRTEL"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .smedataplan.iairtel").show();
+				jQuery(".check-balance").text("Check Balance: *140#");
+				jQuery(".check-balance").css({"background-color":"#dc3545","color":"white"});
+				
+			}
+			
+			else if(d2atachoice == "corporate" && d2atanetwork == "MTN"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .corporatedataplan.r2imtn").show();
+				jQuery(".check-balance").text("Check Balance: *131*4#");
+				jQuery(".check-balance").css({"background-color":"#ffc107","color":"black"});
+				
+			}
+			else if(d2atachoice == "corporate" && d2atanetwork == "GLO"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .corporatedataplan.r2iglo").show();
+				jQuery(".check-balance").text("Check Balance: *127*0#");
+				jQuery(".check-balance").css({"background-color":"#20c997","color":"black"});
+				
+			}
+			else if(d2atachoice == "corporate" && d2atanetwork == "9MOBILE"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .corporatedataplan.r2i9mobile").show();
+				jQuery(".check-balance").text("Check Balance: *232#");
+				jQuery(".check-balance").css({"background-color":"#198754","color":"white"});
+			}
+			else if(d2atachoice == "corporate" && d2atanetwork == "AIRTEL"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .corporatedataplan.r2iairtel").show();
+				jQuery(".check-balance").text("Check Balance: *140#");
+				jQuery(".check-balance").css({"background-color":"#dc3545","color":"white"});
+			}
+			
+			else if(d2atachoice == "direct" && d2atanetwork == "MTN"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .directdataplan.rimtn").show();
+				jQuery(".check-balance").text("Check Balance: *461*4#");
+				jQuery(".check-balance").css({"background-color":"#ffc107","color":"black"});
+			}
+			else if(d2atachoice == "direct" && d2atanetwork == "GLO"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .directdataplan.riglo").show();
+				jQuery(".check-balance").text("Check Balance: *127*0#");
+				jQuery(".check-balance").css({"background-color":"#20c997","color":"black"});
+				
+				
+			}
+			else if(d2atachoice == "direct" && d2atanetwork == "9MOBILE"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .directdataplan.ri9mobile").show();
+				jQuery(".check-balance").text("Check Balance: *232#");
+				jQuery(".check-balance").css({"background-color":"#198754","color":"white"});
+				
+			}
+			else if(d2atachoice == "direct" && d2atanetwork == "AIRTEL"){
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".data-plan .directdataplan.riairtel").show();
+				jQuery(".check-balance").text("Check Balance: *140#");
+				jQuery(".check-balance").css({"background-color":"#dc3545","color":"white"});
+				
+			}
+			
+			else if(d2atachoice == "none" && d2atanetworkval == "none"){
+				jQuery(".check-balance").text("Select A Data Plan");
+				jQuery(".check-balance").css({"background-color":"#0dcaf0","color":"black"});
+				
+			}
+			
+			else if(d2atachoice == "none"){
+				
+				jQuery(".data-plan .smedataplan").hide();
+				jQuery(".data-plan .corporatedataplan").hide();
+				jQuery(".data-plan .directdataplan").hide();
+				jQuery(".check-balance").text("Select A Data Plan");
+				jQuery(".check-balance").css({"background-color":"#0dcaf0","color":"black"});
+				
+			}
+		
+		
+		
+		
+		
+	}
+	
+	
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+        //when purchase is clicked
+	jQuery(".d-data").hide();
+    jQuery(".purchase-data").on("click",function($){
+
+
+jQuery("#thatnetwork").val(jQuery(".data-network option:selected").text());
+
+    var cdat = jQuery(".data-plan").val();
+    var request_id =  jQuery("#uniqidvalue").val();
+    var phone = jQuery(".data-number").val();
+    var network = jQuery(".data-network").val();
+    var amount = jQuery(".data-amount").val();
+    var cvar = jQuery(".data-plan").val();
+    var dur = jQuery(".datachoice").val();
+  	var url = jQuery("#url");
+	var datacode = jQuery("#datatcode").val();
+    
+switch(dur){
+	case"sme":
+	
+url.val("smebasedata/smepostdata1=smepostvalue1&request-id="+request_id+"&smepostdata2=smepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat+"&datacode="+datacode);
+
+	break;
+	case "direct":
+	
+url.val("directbasedata/directpostdata1=directpostvalue1&request_id="+request_id+"&directpostdata2=directpostvalue2&post3=value3&post4=value4&post5=value5&network="+network+"&amount="+amount+"&mobile_number="+phone+"&plan="+cdat+"&datacode="+datacode);
+
+	
+	break;
+	case "corporate":
+	
+url.val("corporatebasedata/corporatepostdata1=corporatepostvalue1&request-id="+request_id+"&corporatepostdata2=corporatepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat+"&datacode="+datacode);
+	
+	break;
+	default:alert("Error CODE myDATA --- Under crst VP CUST");
+}
+
+ 
+
+    
+    var phone = jQuery("input.data-number").val(); //the phone number value
+    var phoneslice = phone.slice(0,4); //check from 0 to 4th character of phone
+    var data_network_value = jQuery("select.data-network").val(); //check the network value
+    var data_network_text = jQuery("select.data-network option:selected").text(); //check the network text
+    var data_plan_text = jQuery("select.data-plan option:selected").text(); //check the plan text
+    var data_phone_length = jQuery("input.data-number").val().length; //check the length of the phone number field
+    var data_amount_value = jQuery("#amttopay").val();
+	var discount_amount_confirm = jQuery(".discount-amount-confirm").text();
+	var datachoice = jQuery(".datachoice").val();
+
+//DISCOUNT BGN
+if(datachoice == "sme"){
+	switch(data_network_value){
+		case"1":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"3":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"2":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"4":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+	}
+}
+else if(datachoice == "direct"){
+	switch(data_network_value){
+		case"1":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"2":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"4":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"3":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+	}
+}
+else if(datachoice == "corporate"){
+	switch(data_network_value){
+		case"1":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"3":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"2":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;
+		case"4":
+		jQuery(".discount-amount-confirm").text("0%");
+		break;	
+	}
+}
+
+	
+	
+	
+
+    
+if(data_phone_length == "11" ){
+    jQuery(".number-error-message").text("");
+
+if(jQuery('input.bypass').is(':checked') == true) {
+	console.log("Bypass On");	
+jQuery("input.data-number").removeClass("is-invalid");
+ jQuery("input.data-number").addClass("is-valid");
+ if(data_phone_length != "11" ){
+
+jQuery("input.data-number").removeClass("is-valid");
+jQuery("input.data-number").addClass("is-invalid");
+ 
+jQuery(".number-error-message").text("The Phone Number Must Be 11 Digits");
+ }
+
+
+}
+else{
+	
+		console.log("Bypass Off");	
+switch (phoneslice){
+case "0703"://MTN
+   if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0704":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0706":
+if(data_network_text == "MTN" || data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").addClass("is-invalid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0803":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").addClass("is-invalid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0806":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").addClass("is-invalid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0810":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").addClass("is-invalid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0813":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").addClass("is-invalid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0814":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0816":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0903":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0906":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0913":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0916":
+if(data_network_text == "MTN"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0701"://END OF MTN
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0708":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0802":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0808":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0812":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0901":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0902":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0904":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0907":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0912":
+if(data_network_text == "AIRTEL"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0705"://END OF AIRTEL
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0805":
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0807":
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0811":
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0815":
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0905":
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0915":
+if(data_network_text == "GLO"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0703"://END OF GLO
+if(data_network_text == "9MOBILE"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0809":
+if(data_network_text == "9MOBILE"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0817":
+if(data_network_text == "9MOBILE"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0818":
+if(data_network_text == "9MOBILE"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0908":
+ 
+if(data_network_text == "9MOBILE"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+   else{
+jQuery("input.data-phone").removeClass("is-valid");
+ jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+case "0909":
+if(data_network_text == "9MOBILE"){
+
+        jQuery("input.data-phone").removeClass("is-invalid");
+        jQuery("input.data-phone").addClass("is-valid");
+
+    }
+    else{
+        
+        jQuery("input.data-phone").addClass("is-invalid");
+
+    }
+break;
+default: jQuery("input.data-phone").addClass("is-invalid");
+}
+}
+    if(data_network_text != "---Select---"){
+        jQuery("select.data-network").removeClass("is-invalid");
+        jQuery("select.data-network").addClass("is-valid");
+    if( jQuery("input.data-phone").hasClass("is-invalid")){
+        
+        jQuery(".number-error-message").text("The Phone Number Is Not For "+data_network_text);
+    }
+    }
+    else{
+        jQuery("select.data-network").removeClass("is-valid");
+        jQuery("select.data-network").addClass("is-invalid");
+		jQuery("select.data-plan").hide();
+        //jQuery(".number-error-message").text("Please Choose A Network");
+    }
+    
+    if(data_plan_text != "---Select---"){
+		jQuery("select.data-plan").show();
+        jQuery("select.data-plan").removeClass("is-invalid");
+        jQuery("select.data-plan").addClass("is-valid");
+    }
+    else{
+        jQuery("select.data-plan").removeClass("is-valid");
+        jQuery("select.data-plan").addClass("is-invalid");
+        //jQuery(".number-error-message").text("Please Choose A Network");
+    }
+
+    }
+    if(data_phone_length != "11" && data_phone_length != "0" ){
+    //alert(data_phone_length);
+    jQuery("input.data-phone").removeClass("is-valid");
+     jQuery("input.data-phone").addClass("is-invalid");
+     jQuery(".number-error-message").text("Number should be 11 in numbers");
+    
+    }
+    if(data_phone_length == "0"){
+        jQuery("input.data-phone").removeClass("is-valid");
+     jQuery("input.data-phone").addClass("is-invalid");
+     jQuery("span.number-error-message").text("This Can't Be Empty");
+    
+    }
+ 
+    if(data_amount_value == "" || data_amount_value > 29.93 || data_amount_value < 0){
+        jQuery(".amttopay").addClass("is-invalid");
+        jQuery(".data-amount-error-message").text("Insufficient Balance");
+
+    }
+    else{
+        jQuery(".amttopay").removeClass("is-invalid");
+        jQuery(".amttopay").addClass("is-valid");
+    }
+    var data_phone_class = jQuery("input.data-number").hasClass("is-invalid");
+    var data_network_class = jQuery("select.data-network").hasClass("is-invalid");
+    var data_amount_class = jQuery("input.data-amount").hasClass("is-invalid");
+    var data_amount_class2 = jQuery("input#amttopay").hasClass("is-invalid");
+    
+    /*if(!data_phone_class || !data_network_class){
+        
+    jQuery(".purchase-data").attr("data-bs-toggle", "modal");
+    jQuery(".purchase-data").click();
+    
+    }*/
+    
+    if(data_phone_class || data_network_class || data_amount_class || data_amount_class2){
+    
+        jQuery(".data-network-confirm").text( jQuery("select.data-network option:selected").text());
+        jQuery(".data-number-confirm").text( jQuery("input.data-number").val());
+        jQuery(".data-amount-confirm").text( jQuery("input.data-amount").val());
+        jQuery(".data-status-confirm").text("There's An Error You Need To Fix");
+        jQuery(".data-plan-confirm").text( jQuery("select.data-plan option:selected").text());
+        
+        jQuery(".data-proceed").hide();
+        
+    }
+    else{
+        jQuery(".data-network-confirm").text( jQuery("select.data-network option:selected").text());
+        jQuery(".data-number-confirm").text( jQuery("input.data-number").val());
+        jQuery(".data-amount-confirm").text( jQuery("input.data-amount").val());
+        jQuery(".data-plan-confirm").text( jQuery("select.data-plan option:selected").text());
+        jQuery(".data-status-confirm").text("Correct");
+    
+        jQuery(".data-proceed").show(); 
+    }
+        
+    /*
+    jQuery(".data-proceed-cancled").click(function(){
+        jQuery(".purchase-data").attr("data-bs-toggle","modal"); 
+    });
+    */
+	
+	
+		
+    var request_id =  jQuery("#uniqidvalue").val();
+    var phone = jQuery(".data-number").val();
+    var network = jQuery(".data-network").val();
+    var amount = jQuery(".data-amount").val();
+    var cvar = jQuery(".data-plan").val();
+    var datacode = jQuery("#datatcode").val();
+    var url = jQuery("#url");
+	var dur = jQuery(".datachoice").val();
+    var cdat2 = jQuery(".data-plan").val();
+switch(dur){
+	case"sme":
+	
+	
+url.val("smebasedata/smepostdata1=smepostvalue1&request-id="+request_id+"&smepostdata2=smepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat+"&datacode="+datacode);
+
+	break;
+	case "direct":
+	
+url.val("directbasedata/directpostdata1=directpostvalue1&request_id="+request_id+"&directpostdata2=directpostvalue2&post3=value3&post4=value4&post5=value5&network="+network+"&amount="+amount+"&mobile_number="+phone+"&plan="+cdat+"&datacode="+datacode);
+
+	
+	break;
+	case "corporate":
+	
+url.val("corporatebasedata/corporatepostdata1=corporatepostvalue1&request-id="+request_id+"&corporatepostdata2=corporatepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat+"&datacode="+datacode);
+	
+	break;
+	default:alert("Error CODE myDATA --- Under crst VP CUST");
+}
+
+
+	
+    
+    
+    });
+
+	jQuery(".data-network").on("change", function($){
+		var data_network_text = jQuery("select.data-network option:selected").text();
+		if(data_network_text == "MTN" ){
+			jQuery(".d-data").show();
+			jQuery("option.imtn").show();
+			jQuery("option.iairtel").hide();
+			jQuery("option.i9mobile").hide();
+			jQuery("option.iglo").hide();
+		}
+		if(data_network_text == "GLO" ){
+			jQuery(".d-data").show();
+			jQuery("option.imtn").hide();
+			jQuery("option.iairtel").hide();
+			jQuery("option.i9mobile").hide();
+			jQuery("option.iglo").show();
+		}
+		if(data_network_text == "9MOBILE" ){
+			jQuery(".d-data").show();
+			jQuery("option.imtn").hide();
+			jQuery("option.iairtel").hide();
+			jQuery("option.i9mobile").show();
+			jQuery("option.iglo").hide();
+		}
+		if(data_network_text == "AIRTEL" ){
+			jQuery(".d-data").show();
+			jQuery("option.imtn").hide();
+			jQuery("option.iairtel").show();
+			jQuery("option.i9mobile").hide();
+			jQuery("option.iglo").hide();
+		}
+
+		if(data_network_text == "---Select---" ){
+			jQuery(".d-data").hide();
+			jQuery("option.imtn").hide();
+			jQuery("option.iairtel").show();
+			jQuery("option.i9mobile").hide();
+			jQuery("option.iglo").hide();
+		}
+
+	});
+
+    
+
+
+
+jQuery(".data-plan").on("change",function(){
+var cdat = document.getElementById("cdat").value;
+var amtd = document.getElementById("amt");
+var datachoice = jQuery(".datachoice").val();
+
+if(datachoice == "sme"){
+switch(cdat){
+case "1":
+amtd.value = "119";
+break;
+case "2":
+amtd.value = "218";
+break;
+case "3":
+amtd.value = "436";
+break;
+case "4":
+amtd.value = "654";
+break;
+case "5":
+amtd.value = "1124";
+break;
+case "6":
+amtd.value = "2280";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+
+case "74":
+amtd.value = "200";
+break;
+case "75":
+amtd.value = "305";
+break;
+case "76":
+amtd.value = "400";
+break;
+case "77":
+amtd.value = "600";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+}
+}
+
+else if(datachoice == "direct"){
+switch(cdat){
+case "92":
+amtd.value = "1100";
+break;
+case "93":
+amtd.value = "1500";
+break;
+case "94":
+amtd.value = "2000";
+break;
+case "95":
+amtd.value = "3000";
+break;
+case "97":
+amtd.value = "4000";
+break;
+case "102":
+amtd.value = "5000";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "51":
+amtd.value = "20000";
+break;
+case "52":
+amtd.value = "40000";
+break;
+case "253":
+amtd.value = "12000";
+break;
+case "142":
+amtd.value = "1050";
+break;
+case "143":
+amtd.value = "1500";
+break;
+case "144":
+amtd.value = "2000";
+break;
+case "145":
+amtd.value = "2600";
+break;
+case "146":
+amtd.value = "4500";
+break;
+case "148":
+amtd.value = "5500";
+break;
+case "145":
+amtd.value = "520";
+break;
+case "138":
+amtd.value = "10000";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "54":
+amtd.value = "1000";
+break;
+case "13":
+amtd.value = "1500";
+break;
+case "14":
+amtd.value = "1800";
+break;
+case "15":
+amtd.value = "2200";
+break;
+case "33":
+amtd.value = "3500";
+break;
+case "36":
+amtd.value = "5450";
+break;
+case "57":
+amtd.value = "7600";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "37":
+amtd.value = "496";
+break;
+case "32":
+amtd.value = "1050";
+break;
+case "26":
+amtd.value = "1446";
+break;
+case "27":
+amtd.value = "1985";
+break;
+case "28":
+amtd.value = "2460";
+break;
+case "29":
+amtd.value = "2920";
+break;
+case "56":
+amtd.value = "3940";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+}
+}
+else if(datachoice == "corporate"){
+switch(cdat){
+case "8":
+amtd.value = "139";
+break;
+case "9":
+amtd.value = "238";
+break;
+case "10":
+amtd.value = "476";
+break;
+case "11":
+amtd.value = "718";
+break;
+case "12":
+amtd.value = "1198";
+break;
+case "13":
+amtd.value = "2384";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "40":
+amtd.value = "119";
+break;
+case "41":
+amtd.value = "218";
+break;
+case "42":
+amtd.value = "436";
+break;
+case "43":
+amtd.value = "1125";
+break;
+case "44":
+amtd.value = "2245";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "79":
+amtd.value = "138";
+break;
+case "80":
+amtd.value = "236";
+break;
+case "81":
+amtd.value = "472";
+break;
+case "82":
+amtd.value = "762";
+break;
+case "83":
+amtd.value = "1185";
+break;
+case "84":
+amtd.value = "2370";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+case "":
+amtd.value = "";
+break;
+default: alert("no price set for this");
+}
+}
+
+
+calcit();
+
+});
+
+
+
+//ACTION FIELD
+jQuery(".view-url").on("click",function($){
+	
+    var request_id =  jQuery("#uniqidvalue").val();
+    var phone = jQuery(".data-number").val();
+    var network = jQuery(".data-network").val();
+    var amount = jQuery(".data-amount").val();
+    var cvar = jQuery(".data-plan").val();
+    var datacode = jQuery("#datatcode").val();
+    var url = jQuery("#url");
+	var dur = jQuery(".datachoice").val();
+    var cdat2 = jQuery(".data-plan").val();
+switch(dur){
+	case"sme":
+	
+	
+url.val("smebasedata/smepostdata1=smepostvalue1&request-id="+request_id+"&smepostdata2=smepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat2+"&datacode="+datacode);
+
+	break;
+	case "direct":
+	
+url.val("directbasedata/directpostdata1=directpostvalue1&request_id="+request_id+"&directpostdata2=directpostvalue2&post3=value3&post4=value4&post5=value5&network="+network+"&amount="+amount+"&mobile_number="+phone+"&plan="+cdat2+"&datacode="+datacode);
+
+	
+	break;
+	case "corporate":
+	
+url.val("corporatebasedata/corporatepostdata1=corporatepostvalue1&request-id="+request_id+"&corporatepostdata2=corporatepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat2+"&datacode="+datacode);
+
+		break;
+	default:alert("Error CODE myDATA --- Under crst VP CUST");
+}
+
+ 
+    
+    var durl = jQuery("#url").val();
+    
+    alert("DATA RESQUEST\n"+durl);
+    
+    });
+	
+	
+	
+jQuery(".data-proceed").click(function(){
+	
+    var request_id =  jQuery("#uniqidvalue").val();
+    var phone = jQuery(".data-number").val();
+    var network = jQuery(".data-network").val();
+    var amount = jQuery(".data-amount").val();
+    var cvar = jQuery(".data-plan").val();
+    var datacode = jQuery("#datatcode").val();
+    var url = jQuery("#url");
+	var dur = jQuery(".datachoice").val();
+    var cdat2 = jQuery(".data-plan").val();
+switch(dur){
+	case"sme":
+	
+	
+url.val("smebasedata/smepostdata1=smepostvalue1&request-id="+request_id+"&smepostdata2=smepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat2+"&datacode="+datacode);
+
+	break;
+	case "direct":
+	
+url.val("directbasedata/directpostdata1=directpostvalue1&request_id="+request_id+"&directpostdata2=directpostvalue2&post3=value3&post4=value4&post5=value5&network="+network+"&amount="+amount+"&mobile_number="+phone+"&plan="+cdat2+"&datacode="+datacode);
+
+	
+	break;
+	case "corporate":
+	
+url.val("corporatebasedata/corporatepostdata1=corporatepostvalue1&request-id="+request_id+"&corporatepostdata2=corporatepostvalue2&=&post4=value4&post5=value5&network="+network+"&amount="+amount+"&phone="+phone+"&data_plan="+cdat2+"&datacode="+datacode);
+
+		break;
+	default:alert("Error CODE myDATA --- Under crst VP CUST");
+}
+
+ 
+    
+    var durl = jQuery("#url").val();
+	
+	
+	
+	jQuery('.btn-close').trigger('click');
+	jQuery("#cover-spin").show();
+	
+var obj = {};
+obj["vend"] = "vend";
+obj["network"] = jQuery(".data-network").val();
+obj["cplan"] = jQuery(".data-plan").val();
+obj["vpname"] = jQuery(".data-name").val();
+obj["network_name"] = jQuery(".data-network option:selected").text();
+obj["data_plan"] = jQuery(".data-plan option:selected").text();
+obj["plan_index"] = jQuery(".data-plan option:selected").attr("id");
+obj["data_choice"] = jQuery(".datachoice option:selected").text();
+obj["vpemail"] = jQuery(".data-email").val();
+obj["tcode"] = jQuery("#tcode").val();
+obj["datatcode"] = jQuery("#datatcode").val();
+obj["url"] = durl;
+obj["uniqidvalue"] = jQuery("#uniqidvalue").val();
+obj["thatnetwork"] = jQuery("#thatnetwork").val();
+obj["url1"] = jQuery("#url1").val();
+obj["id"] = jQuery("#id").val();
+obj["phone"] = jQuery("#phone").val();
+obj["amount"] = jQuery("#amt").val();
+obj["pin"] = jQuery(".pin").val();
+obj["run_code"] = "645808b277c19";
+
+jQuery.ajax({
+  url: 'https://sky247data.com/wp-content/plugins/vtupress/vend.php',
+  data: obj,
+  dataType: 'text',
+  'cache': false,
+  "async": true,
+  error: function (jqXHR, exception) {
+	  jQuery("#cover-spin").hide();
+        var msg = "";
+        if (jqXHR.status === 0) {
+            msg = "No Connection.\n Verify Network.";
+     swal({
+  title: "Error!",
+  text: msg,
+  icon: "error",
+  button: "Okay",
+});
+  
+        } else if (jqXHR.status == 404) {
+            msg = "Requested page not found. [404]";
+			 swal({
+  title: "Error!",
+  text: msg,
+  icon: "error",
+  button: "Okay",
+});
+        } else if (jqXHR.status == 500) {
+            msg = "Internal Server Error [500].";
+			 swal({
+  title: "Error!",
+  text: msg,
+  icon: "error",
+  button: "Okay",
+});
+        } else if (exception === "parsererror") {
+            msg = "Requested JSON parse failed.";
+			   swal({
+  title: msg,
+  text: jqXHR.responseText,
+  icon: "error",
+  button: "Okay",
+});
+        } else if (exception === "timeout") {
+            msg = "Time out error.";
+			 swal({
+  title: "Error!",
+  text: msg,
+  icon: "error",
+  button: "Okay",
+});
+        } else if (exception === "abort") {
+            msg = "Ajax request aborted.";
+			 swal({
+  title: "Error!",
+  text: msg,
+  icon: "error",
+  button: "Okay",
+});
+        } else {
+            msg = "Uncaught Error.\n" + jqXHR.responseText;
+			 swal({
+  title: "Error!",
+  text: msg,
+  icon: "error",
+  button: "Okay",
+});
+        }
+    },
+  
+  success: function(data) {
+	  jQuery("#cover-spin").hide();
+	  let result = data.includes("status");
+	  
+        if(data == "100"){
+		  swal({
+  title: "Transaction Successful!",
+  text: "You've Sent "+jQuery(".data-plan option:selected").text()+" Data Plan To "+jQuery("#phone").val(),
+  icon: "success",
+  button: "Okay",
+}).then((value) => {
+	location.reload();
+});
+	  }
+	  else if(data == "pin"){
+		jQuery("#cover-spin").hide();
+swal({
+  title: "Verification Failed",
+  text: "Pin Incorrect",
+  icon: "error",
+  button: "Okay",
+}).then((value) => {
+	
+});   
+	  }
+	  else if(data == "processing"){
+		jQuery("#cover-spin").hide();
+swal({
+  title: "Processing",
+  text: "You will be updated shortly",
+  icon: "error",
+  button: "Okay",
+}).then((value) => {
+	location.reload();
+});   
+	  }
+	else if(data == "202"){
+		jQuery("#cover-spin").hide();
+swal({
+  title: "Transaction Failed",
+  text: "Funds Reversed",
+  icon: "error",
+  button: "Okay",
+}).then((value) => {
+	location.reload();
+});   
+	  }
+	  else if(data == "browser"){
+		jQuery("#cover-spin").hide();
+swal({
+  title: "Verification Failed",
+  text: "Browser Not Supported",
+  icon: "error",
+  button: "Okay",
+}).then((value) => {
+	
+});   
+	  }
+	  else if(result != true){
+		jQuery("#cover-spin").hide();
+swal({
+  title: "Oops!",
+  text: data,
+  icon: "error",
+  button: "Okay",
+}).then((value) => {
+	
+});     
+      }
+	  else{
+		 jQuery("#cover-spin").hide();
+	swal({
+  buttons: {
+        defeat: "Okay",
+  },
+  title: "Transaction Processing",
+  text: "Funds Will Be Reversed If Debited And Status Marked Failed",
+  icon: "warning",
+})
+.then((value) => {
+  switch (value) {
+ 
+    case "defeat":
+		location.reload();
+      break;
+    default:
+	swal(data,{
+  icon: "info",
+  button: "Okay"
+}).then((value) => {
+  switch (value) {
+ 
+    case "defeat":
+		location.reload();
+      break;
+    default:
+   	location.reload();
+  }
+});
+  }
+});
+	  }
+  },
+  type: 'POST'
+});
+
+});
+    </script>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+</div>
+<div class="mt-10 lg:mt-0 lg:w-9/12 lg:pl-10">
+<div class="flex items-center justify-between">
+<h2 class="mb-2 text-xl font-bold text-gray-700 white">
+Recent transactions
+</h2>
+<a href="?vend=history&for=transactions" class="text-xs font-bold text-blue-700 uppercase">
+<i class="fa fa-eye"></i>
+See All Transactions
+</a>
+</div>
+<div class="bg-white rounded shadow min-h-72" style="overflow-x:auto;">
+<div class="px-0 py-3 lg:p-5 px-3" >
+
+<div class="px-3" style="overflow-x:auto;">
+
+
+
+<table class="table table-striped table-hover table-bordered table-responsive">
+<tbody>
+
+<tr>
+<th scope='col'>Id</th>
+<th scope='col'>By</th>
+<th scope='col'>Type</th>
+<th scope='col'>Status</th>
+<th scope='col'>Amount</th>
+<th scope='col'>Previous Balance</th>
+<th scope='col'>Current Balance</th>
+<th scope='col'>Description</th>
+<th scope='col'>time</th>
+</tr>
+
+<tr>
+<td scope='row'>45421</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>980</td>
+<td>76.93</td>
+<td>1056.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-05-04 21:49:50</td>
+</tr>
+
+<tr>
+<td scope='row'>45287</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>980</td>
+<td>404.93</td>
+<td>1384.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-05-04 16:18:33</td>
+</tr>
+
+<tr>
+<td scope='row'>44742</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>980</td>
+<td>78.93</td>
+<td>1058.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-05-02 19:58:54</td>
+</tr>
+
+<tr>
+<td scope='row'>44125</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>1960</td>
+<td>71.93</td>
+<td>2031.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-30 22:29:01</td>
+</tr>
+
+<tr>
+<td scope='row'>43366</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>980</td>
+<td>7.9300000000003</td>
+<td>987.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-28 19:24:55</td>
+</tr>
+
+<tr>
+<td scope='row'>42787</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>980</td>
+<td>155.93</td>
+<td>1135.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-27 06:54:00</td>
+</tr>
+
+<tr>
+<td scope='row'>42559</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>1666</td>
+<td>20.93</td>
+<td>1686.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-26 14:18:52</td>
+</tr>
+
+<tr>
+<td scope='row'>42077</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>882</td>
+<td>657.93</td>
+<td>1539.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-25 06:52:12</td>
+</tr>
+
+<tr>
+<td scope='row'>41920</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>980</td>
+<td>111.93</td>
+<td>1091.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-24 14:19:48</td>
+</tr>
+
+<tr>
+<td scope='row'>41862</td>
+<td>JTDav142</td>
+<td>wallet</td>
+
+
+<td><span class='btn-danger text-white rounded shadow p-1'>approved</span></td>
+
+<td>245</td>
+<td>300.93</td>
+<td>545.93</td>
+<td>Credited By You [Online]</td>
+<td>2023-04-24 10:46:46</td>
+</tr>
+</tbody>
+		</table>
+		
+</div>
+
+
+</div>
+</div>
+<div class="p-5 mt-3 text-center">
+<a href="?vend=history&for=transactions" class="inline-block px-4 py-1 text-black bg-gray-300 border border-gray-400 rounded-full hover:bg-gray-400">
+See All Transactions
+</a>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="row">
+
+					
+					<!-- REFERAL -->
+					
+					
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header bg-gray-200 dark-white">
+                                        <h3 class="card-title p-2">Statistics</h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+									
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="refstats">Refer Stats</h5>
+                                        <table class="table table-light">
+                                            <thead class="bg-gray-100">
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Value</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                            <td>Refered By</td>
+                                            <td>1</td>
+                                        </tr>
+                                             <tr>
+                                        <td>Total PVs</td>
+                                        <td></td>
+                                             </tr>
+												
+                                           </tbody>
+                                        </table>
+                                    </div>
+									
+									
+									
+									
+									<div class="card-body">
+                                        <h5 class="card-title" id="bonusstats">Transaction & Bonus Stats</h5>
+                                        <table class="table table-light">
+                                            <thead class="bg-gray-100">
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Value</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+												<tr>
+                                                    <td>No. Of Transactions Attempted</td>
+                                                    <td>186</td>
+                                                </tr>
+												<tr>
+                                                    <td>No. Of Successful Transactions Made</td>
+                                                    <td>164</td>
+                                                </tr>
+												
+												<tr>
+                                                    <td>Total Amount Of Transaction Bonus Earned</td>
+                                                    <td>₦</td>
+                                                </tr>
+												
+                                           </tbody>
+                                        </table>
+                                    </div>
+									
+									
+									
+									
+									<!-- WITHDRAWALS -->
+									
+						
+									
+									
+                                </div>
+                            </div>
+</div>
+
+
+
+</div>
+</div>
+</section>
+</div>
+<!--SECTIONS DASHBOARD-->
+
+<!--<script src="https://sky247data.com/wp-content/plugins/vtupress/template/classic/classic/index.js?v=1"></script>-->
+<div class="p-10 text-sm text-center text-gray-600">
+
+</div>
+
+
+											
+
+</div>
+
+
+
+</section>
+</main>
+
+<script>
+jQuery(window).on("load",function(){
+	jQuery("#cover-spin").hide();
+
+
+
+	});
+</script>
+
+</script>
+
+
+<div class="position-fixed py-2 px-3 bg-dark text-white rounded-pill" style="bottom:1rem;right:1rem;">
+<div class="form-check form-switch pull-right">
+  <input class="form-check-input" type="checkbox" id="darkMode">
+  <label id="darkModeLabel" for="darkMode">Light</label>
+</div>
+</div>
+
+<script>
+var darkMode = document.getElementById('darkMode');
+var darkLabel = "darkModeLabel";
+var darkLang = "Dark";
+var lightLang = "Light";
+var imgID = "logo";
+var darkImg = "./dark.png";
+var lightImg = "./light.png";
+window.addEventListener('load', function () {
+  if (darkMode) {
+    initTheme();
+    darkMode.addEventListener('change', function () {
+      resetTheme();
+    });
+  }
+});
+function initTheme() {
+  var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
+  darkMode.checked = darkThemeSelected;
+  darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+ // darkThemeSelected ? document.getElementById(imgID).src = darkImg : document.getElementById(imgID).src = lightImg;
+  darkThemeSelected ? document.getElementById(darkLabel).innerHTML = darkLang : document.getElementById(darkLabel).innerHTML = lightLang;
+}
+function resetTheme() {
+  if (darkMode.checked) {
+    document.body.setAttribute('data-theme', 'dark');
+    localStorage.setItem('darkMode', 'dark');
+    //document.getElementById(imgID).src = darkImg;
+    document.getElementById(darkLabel).innerHTML = darkLang;
+  } else {
+    document.body.removeAttribute('data-theme');
+    localStorage.removeItem('darkMode');
+   // document.getElementById(imgID).src = lightImg;
+    document.getElementById(darkLabel).innerHTML = lightLang;
+  }
+}
+</script>
+<script>
+jQuery("datalist#beneficiaries").remove();
+console.log("Now "+"2023-05-08 12:59 AM");
+</script>
+</body>
+</html>

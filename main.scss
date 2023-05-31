@@ -1,0 +1,14 @@
+// link for My font size
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  :root{
+  --primaryColor: #ad91cf;
+  --secondaryColor: rgb(196, 169, 230);
+  --blackColor: rgb(46,46,71);
+  }
